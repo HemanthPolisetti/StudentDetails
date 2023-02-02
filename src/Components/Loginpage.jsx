@@ -3,29 +3,29 @@ import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
 import { useNavigate } from "react-router-dom";
-// import { useContext } from "react";
-// import AuthReducer from "../Context/AuthReducer";
-const Loginpage = ({currentUser, setCurrentUser}) => {
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
+const Loginpage = () => {
     
     const [loginError,setLoginError]=useState(false)
     const [email,setEmail]=useState("")
     const [password, setPassword] = useState("")
     const navigate=useNavigate()
-    // const [currentUser,setCurrentUser] = useState(false);
-    // const {dispatch} = useContext(AuthReducer)
+    const {dispatch} = useContext(AuthContext)
 
-    const handleLogin=(e)=>{
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, email, password)
+    const handleLogin = (e) => {
+      e.preventDefault();
+  
+      signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-        const user = userCredential.user;
-        // dispatch({type:'LOGIN',payload:user})
-        navigate("/home")
-  })
-  .catch((error) => {
-    setLoginError(true)
-});   
-    }
+          const user = userCredential.user;
+          dispatch({type:"LOGIN", payload:user})
+          navigate("/")
+        })
+        .catch((error) => {
+          setLoginError(true);
+        });
+    };
     
   return (
     <Stack direction='row' justifyContent='center'>

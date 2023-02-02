@@ -9,7 +9,7 @@ const Login = ({currentUser ,setCurrentUser}) => {
     , fontWeight:'bold'}}> 
             Student Details
         </Typography>
-        <Loginpage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+        <Loginpage />
     </Box>
   )
 }
