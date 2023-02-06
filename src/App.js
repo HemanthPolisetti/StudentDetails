@@ -1,19 +1,26 @@
 import {BrowserRouter , Routes , Route, Navigate} from 'react-router-dom';
-import { useContext } from 'react';
+import Details from './Components/Details';
 import Home from './Components/Home';
-import Login from './Components/Login';
-import { AuthContext } from './Context/AuthContext';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './Firebase';
+import { useEffect } from 'react';
+import Loginpage from './Components/Loginpage';
 function App() {
-  const {currentUser} = useContext(AuthContext);
-  const RequireAuth= (({children})=>{
-    return currentUser ? {children} : <Navigate to='/login' />
-  })
+  // useEffect(()=>{
+  //     auth.onAuthStateChanged(user=>{
+  //       console.log({
+  //         uid:user.uid,
+  //         email:user.email
+  //     })
+  //     })
+  // })
   return (
     <BrowserRouter>
       <Routes>
       <Route path="/">
-        <Route path='login' element={<Login />}/>
-        <Route index element={<RequireAuth> <Home /> </RequireAuth> }/>
+        <Route path='login' element={<Loginpage />}/>
+        <Route index element={<Details />} />
+        <Route path='home' element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
