@@ -2,12 +2,12 @@ import { Typography ,Stack, Button, TextField,Box } from "@mui/material";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Loginpage = () => {
-    const navigate=Navigate();
     const [error,setError]=useState(false)
     const [email,setEmail]=useState("")
     const [password, setPassword] = useState("")
+    const navigate=useNavigate();
 
     const handleLogin = (e) => {
       e.preventDefault()

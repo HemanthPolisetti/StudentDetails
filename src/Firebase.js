@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 import {getFirestore} from '@firebase/firestore'
 const firebaseConfig = {
-  apiKey: "AIzaSyBCFBO86OYWLTrJpBSUyf_xHg8JBQocOqU",
-  authDomain: "company-details-f3d8c.firebaseapp.com",
-  projectId: "company-details-f3d8c",
-  storageBucket: "company-details-f3d8c.appspot.com",
-  messagingSenderId: "568990061065",
-  appId: "1:568990061065:web:ca4b4459b03e69da8cded8",
-  measurementId: "G-MDTP66F3LW"
+  apiKey: "AIzaSyDlqAb8xRCYFDBnv9t5LCh8kB9PoT9DWXI",
+  authDomain: "axial-psyche-338207.firebaseapp.com",
+  projectId: "axial-psyche-338207",
+  storageBucket: "axial-psyche-338207.appspot.com",
+  messagingSenderId: "611297711943",
+  appId: "1:611297711943:web:1d609a6e9e3fa619875e62",
+  measurementId: "G-VFE7W5XLB4"
 };
 
   const app = initializeApp(firebaseConfig);

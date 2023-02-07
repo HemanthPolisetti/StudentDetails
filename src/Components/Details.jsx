@@ -5,7 +5,7 @@ import {Box , Card , Typography, Stack} from '@mui/material';
 import {db} from '../Firebase';
 
 const Details = () => {
-    const userCollectionRef = collection(db, "comapanyDetails")
+    const userCollectionRef = collection(db, "companyDetails")
     const [users , setUsers] = useState([]);
     useEffect(() => {
         const pDetails=async()=>{
